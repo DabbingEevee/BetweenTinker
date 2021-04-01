@@ -54,6 +54,12 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    compile files (
+        "Mantle-1.12-1.3.3.55.jar",
+        "TConstruct-1.12.2-2.13.0.183.jar",
+        "TheBetweenlands-3.7.3-SNAPSHOT-20210322.012210-core.jar",
+        "TheBetweenlands-3.7.3-universal.jar"
+    )
 
 }
 
