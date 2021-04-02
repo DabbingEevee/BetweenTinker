@@ -1,7 +1,5 @@
 package com.existingeevee.betweentinker;
 
-import com.existingeevee.betweentinker.tools.Tools;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -21,13 +19,11 @@ public class BetweenTinker
     	if(Loader.isModLoaded("thebetweenlands")) {
     		blackListTinkerTools();
     	}
-    	BetweenTinkerTools.init();
-    	Tools.init();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-
+    	BetweenTinkerTools.init();
     }
     
     private static void blackListTinkerTools() {

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "tconmaterial:blocks/blockvoidspar",
+    "up": "tconmaterial:blocks/blockvoidspar",
+    "north": "tconmaterial:blocks/blockvoidspar",
+    "east": "tconmaterial:blocks/blockvoidspar",
+    "south": "tconmaterial:blocks/blockvoidspar",
+    "west": "tconmaterial:blocks/blockvoidspar",
+    "particle": "tconmaterial:blocks/blockvoidspar"
+  }
+}

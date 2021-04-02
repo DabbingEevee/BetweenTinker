@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "tconmaterial:blocks/blockpenguinite",
+    "up": "tconmaterial:blocks/blockpenguinite",
+    "north": "tconmaterial:blocks/blockpenguinite",
+    "east": "tconmaterial:blocks/blockpenguinite",
+    "south": "tconmaterial:blocks/blockpenguinite",
+    "west": "tconmaterial:blocks/blockpenguinite",
+    "particle": "tconmaterial:blocks/blockpenguinite"
+  }
+}

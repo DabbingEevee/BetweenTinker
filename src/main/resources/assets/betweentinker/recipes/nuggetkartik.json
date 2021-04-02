@@ -1,0 +1,18 @@
+{
+  "group": "tconmaterial",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0"
+
+
+  ],
+  "key": {
+    "0": {
+      "item": "tconmaterial:ingotkartik"
+    }
+  },
+  "result": {
+    "item": "tconmaterial:nuggetkartik",
+    "count": 9
+  }
+}

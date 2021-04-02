@@ -48,8 +48,13 @@ public class BetweenAxe extends AoeToolCore implements ICorrodible, IAnimatorRep
 			net.minecraft.block.material.Material.CACTUS);
 
 	public BetweenAxe() {
-		this(PartMaterialType.handle(TinkerTools.toolRod), PartMaterialType.head(BetweenTinkerTools.betweenAxeHead),
-				PartMaterialType.extra(TinkerTools.binding));
+		this(
+			PartMaterialType.handle(TinkerTools.toolRod), 
+			PartMaterialType.head(BetweenTinkerTools.betweenAxeHead),
+			PartMaterialType.extra(TinkerTools.binding)
+			);
+		this.setUnlocalizedName("blaxe");
+		//this.setRegistryName("blaxe");
 	}
 
 	protected BetweenAxe(PartMaterialType... requiredComponents) {

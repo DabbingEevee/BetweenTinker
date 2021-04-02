@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "tconmaterial:blocks/blockkartik",
+    "up": "tconmaterial:blocks/blockkartik",
+    "north": "tconmaterial:blocks/blockkartik",
+    "east": "tconmaterial:blocks/blockkartik",
+    "south": "tconmaterial:blocks/blockkartik",
+    "west": "tconmaterial:blocks/blockkartik",
+    "particle": "tconmaterial:blocks/blockkartik"
+  }
+}

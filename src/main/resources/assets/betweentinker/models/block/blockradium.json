@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "tconmaterial:blocks/blockradium",
+    "up": "tconmaterial:blocks/blockradium",
+    "north": "tconmaterial:blocks/blockradium",
+    "east": "tconmaterial:blocks/blockradium",
+    "south": "tconmaterial:blocks/blockradium",
+    "west": "tconmaterial:blocks/blockradium",
+    "particle": "tconmaterial:blocks/blockradium"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "group": "tconmaterial",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "tconmaterial:blockenderal"
+    }
+  },
+  "result": {
+    "item": "tconmaterial:gemenderal",
+    "count": 9
+  }
+}

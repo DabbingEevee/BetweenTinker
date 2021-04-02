@@ -47,7 +47,7 @@ public class RegisterHelper {
 
 	public static void registerItem(Item item) {
 		String name = item.getUnlocalizedName().substring(5);
-		item.setCreativeTab(CreativeTabs.MISC);
+		//item.setCreativeTab(CreativeTabs.MISC);
 		item.setRegistryName(name);
 		ForgeRegistries.ITEMS.register(item);
 		try {
