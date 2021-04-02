@@ -17,10 +17,12 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.tconstruct.common.ModelRegisterUtil;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
+import slimeknights.tconstruct.library.tools.IToolPart;
 
 public class RegisterHelper {
 
@@ -45,6 +47,10 @@ public class RegisterHelper {
 		}
 	}
 
+	public static <T extends Item & IToolPart> void registerToolPartModel(T part) {
+        ModelRegisterUtil.registerPartModel(part);
+    }
+	
 	public static void registerItem(Item item) {
 		String name = item.getUnlocalizedName().substring(5);
 		//item.setCreativeTab(CreativeTabs.MISC);

@@ -23,6 +23,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.tconstruct.library.TinkerRegistryClient;
+import slimeknights.tconstruct.library.client.ToolBuildGuiInfo;
 import slimeknights.tconstruct.library.client.particle.Particles;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.tinkering.Category;
@@ -54,6 +56,15 @@ public class BetweenAxe extends AoeToolCore implements ICorrodible, IAnimatorRep
 			PartMaterialType.extra(TinkerTools.binding)
 			);
 		this.setUnlocalizedName("blaxe");
+		
+		try {
+			ToolBuildGuiInfo blaxeInfo = new ToolBuildGuiInfo(this);
+			blaxeInfo.addSlotPosition(22, 53); 
+			blaxeInfo.addSlotPosition(31, 22); 
+			blaxeInfo.addSlotPosition(51, 34); 
+		    TinkerRegistryClient.addToolBuilding(blaxeInfo);
+		} catch (NoSuchMethodError e) { }
+		
 		//this.setRegistryName("blaxe");
 	}
 
