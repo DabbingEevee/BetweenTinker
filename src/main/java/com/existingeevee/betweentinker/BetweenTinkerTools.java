@@ -1,6 +1,7 @@
 package com.existingeevee.betweentinker;
 
 import com.existingeevee.betweentinker.tools.BetweenAxe;
+import com.existingeevee.betweentinker.tools.ItemBase;
 
 import slimeknights.tconstruct.library.TinkerRegistry;
 //import slimeknights.tconstruct.library.TinkerRegistry;
@@ -19,18 +20,19 @@ public class BetweenTinkerTools {
 	
 	public static void init() {
 		betweenAxeHead = (ToolPart) new ToolPart(Material.VALUE_Ingot * 3).setUnlocalizedName("blaxehead");
-		RegisterHelper.registerToolPartModel(betweenAxeHead);
-		betweenPickHead = (ToolPart) new ToolPart(Material.VALUE_Ingot * 3).setUnlocalizedName("blpickaxehead");
-		betweenShovelHead = (ToolPart) new ToolPart(Material.VALUE_Ingot * 1).setUnlocalizedName("blshovelhead");
-		betweenSwordBlade = (ToolPart) new ToolPart(Material.VALUE_Ingot * 2).setUnlocalizedName("blswordblade");
+		//RegisterHelper.registerToolPartModel(betweenAxeHead);
+		//betweenPickHead = (ToolPart) new ToolPart(Material.VALUE_Ingot * 3).setUnlocalizedName("blpickaxehead");
+		//betweenShovelHead = (ToolPart) new ToolPart(Material.VALUE_Ingot * 1).setUnlocalizedName("blshovelhead");
+		//betweenSwordBlade = (ToolPart) new ToolPart(Material.VALUE_Ingot * 2).setUnlocalizedName("blswordblade");
+		
+		RegisterHelper.registerItem(new ItemBase("i"));
 		
 		RegisterHelper.registerItem(betweenAxeHead);
-		RegisterHelper.registerItem(betweenPickHead);
-		RegisterHelper.registerItem(betweenShovelHead);
-		RegisterHelper.registerItem(betweenSwordBlade);
+		//RegisterHelper.registerItem(betweenPickHead);
+		//RegisterHelper.registerItem(betweenShovelHead);
+		//RegisterHelper.registerItem(betweenSwordBlade);
 
 		toolBetweenAxe = new BetweenAxe();
-		TinkerRegistry.registerToolCrafting(toolBetweenAxe);
 		RegisterHelper.registerItem(toolBetweenAxe);
 	}
 	

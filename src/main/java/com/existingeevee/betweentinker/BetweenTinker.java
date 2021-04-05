@@ -1,32 +1,30 @@
 package com.existingeevee.betweentinker;
 
-import org.lwjgl.util.Point;
-
+import com.existingeevee.betweentinker.proxy.IProxy;
 import com.existingeevee.betweentinker.tools.BetweenAxe;
-import com.existingeevee.betweentinker.tools.BetweenBow;
-import com.existingeevee.betweentinker.tools.BetweenPickaxe;
-import com.existingeevee.betweentinker.tools.BetweenShovel;
-import com.existingeevee.betweentinker.tools.BetweenSword;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import slimeknights.tconstruct.library.TinkerRegistryClient;
 import slimeknights.tconstruct.library.tools.ToolCore;
-import slimeknights.tconstruct.tools.harvest.TinkerHarvestTools;
 import thebetweenlands.common.handler.OverworldItemHandler;
 
 @Mod(modid = VersionInfo.MODID, name = VersionInfo.NAME, version = VersionInfo.VERSION)
 public class BetweenTinker
 {
 
+	@SidedProxy(clientSide = "com.existingeevee.betweentinker.proxy.ClientProxy", serverSide = "com.existingeevee.betweentinker.proxy.ServerProxy")
+	public static IProxy proxy;
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+    	proxy.preInit();
+    	
     	ConfigHandler.init(event);
+    	
     	if(Loader.isModLoaded("thebetweenlands")) {
     		blackListTinkerTools();
     	}
@@ -35,10 +33,13 @@ public class BetweenTinker
     @EventHandler
     public void init(FMLInitializationEvent event) {
     	BetweenTinkerTools.init();
+
+    	proxy.init();
     }
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
+    	proxy.postInit();
     	//for (Point x : TinkerRegistryClient.getToolBuildInfoForTool(TinkerHarvestTools.hatchet).positions) {
     		//Logging.Log("(" + x.getX() + ", " + x.getY() + ")");
     	//}

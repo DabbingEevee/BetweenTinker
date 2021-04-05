@@ -1,15 +1,18 @@
 package com.existingeevee.betweentinker;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 import com.google.common.base.Function;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
@@ -23,9 +26,15 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tools.IToolPart;
+import slimeknights.tconstruct.library.tools.ToolCore;
+import slimeknights.tconstruct.library.tools.ToolPart;
 
 public class RegisterHelper {
 
+	//public static Item[] items = new Item[0];
+	public static List<Item> items = new ArrayList<Item>();
+	public static List<Block> blocks = new ArrayList<Block>();
+	
 	public static void registerBlock(Block block) {
 		RegisterHelper.registerBlock(block, ItemBlock::new);
 	}
@@ -36,31 +45,36 @@ public class RegisterHelper {
 
 		if (itemBlock != null) {
 			ForgeRegistries.ITEMS.register(itemBlock.apply(block).setRegistryName(block.getRegistryName()));
-			try {
-				registerBlockModel(block);
-			} catch (NoSuchMethodError e) {
-				return;
-			}
+			//try {
+			blocks.add(block);
+				//registerBlockModel(block);
+			//} catch (NoSuchMethodError e) {
+				//return;
+			//}
 			//if(block instanceof BlockFluidClassic) {
 			//  RenderHandler.registerCustomMeshesAndStates(block);
 			//}
 		}
 	}
-
-	public static <T extends Item & IToolPart> void registerToolPartModel(T part) {
-        ModelRegisterUtil.registerPartModel(part);
-    }
 	
 	public static void registerItem(Item item) {
 		String name = item.getUnlocalizedName().substring(5);
 		//item.setCreativeTab(CreativeTabs.MISC);
 		item.setRegistryName(name);
 		ForgeRegistries.ITEMS.register(item);
-		try {
-			registerItemModel(item);
-		} catch (NoSuchMethodError e) {
-			return;
+		//items.add(item);
+		if (item instanceof ToolCore) {
+			//Logging.Log(item.getUnlocalizedName() + " - toolcore");
+			ModelRegisterUtil.registerToolModel((ToolCore) item);
+		} else if (item instanceof ToolPart){
+			//Logging.Log(item.getUnlocalizedName() + " - toolpart");
+			ModelRegisterUtil.registerPartModel((ToolPart) item);
+		} else {
+			//Logging.Log(item.getUnlocalizedName() + " - else");
+			RegisterHelper.registerItemModel(item);
 		}
+		
+		//}
 	}
 
 	public static void registerBiome(Biome biome) {
@@ -86,7 +100,7 @@ public class RegisterHelper {
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(
 				VersionInfo.MODID + ":" + item.getUnlocalizedName().substring(5), "inventory"));
 	}
-
+	
 	@SideOnly(Side.CLIENT)
 	public static void registerBlockModel(Block block) {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(
